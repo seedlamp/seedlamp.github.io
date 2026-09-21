@@ -1,0 +1,69 @@
+/* Seedlamp Studio — shared site styles (brand: navy + amber, Space Grotesk) */
+:root {
+  --navy: #151B2E; --navy-2: #232B45;
+  --amber: #FFA630; --amber-2: #FFC266;
+  --ink: #151B2E; --muted: #4E5670; --paper: #F4F5FA; --card: #FFFFFF; --rule: #DDE1EC;
+  --link: #9A5B00;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --ink: #EEF0F7; --muted: #A9B0C6; --paper: #0F1424; --card: #182038; --rule: #2A3350; --link: #FFC266; }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.65 system-ui, -apple-system, "Segoe UI", sans-serif; }
+h1, h2, h3, .brand, .pill, .btn { font-family: "Space Grotesk", system-ui, sans-serif; }
+a { color: var(--link); }
+img { max-width: 100%; }
+.wrap { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+.narrow { max-width: 760px; }
+
+/* top bar */
+.bar { background: var(--navy); color: #F4F5FA; }
+.bar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; flex-wrap: wrap; }
+.brand { display: flex; align-items: center; gap: 10px; color: #F4F5FA; text-decoration: none; font-size: 22px; font-weight: 700; letter-spacing: -0.03em; }
+.brand img { width: 30px; height: 35px; }
+.brand span { font-weight: 500; color: var(--amber); }
+.bar nav { display: flex; gap: 20px; font-size: 15px; }
+.bar nav a { color: #C9CFE3; text-decoration: none; }
+.bar nav a:hover { color: #FFFFFF; }
+
+/* hero */
+.hero { background: var(--navy); color: #F4F5FA; text-align: center; padding: 56px 0 72px; }
+.hero .mark { width: 132px; height: 154px; }
+.hero h1 { font-size: clamp(38px, 7vw, 60px); line-height: 1.05; margin: 22px 0 10px; letter-spacing: -0.03em; font-weight: 700; }
+.hero h1 span { font-weight: 500; color: var(--amber); }
+.hero p { color: #C9CFE3; font-size: 19px; margin: 0 auto; max-width: 560px; }
+
+section { padding: 56px 0 8px; }
+h2 { font-size: 28px; letter-spacing: -0.02em; margin: 0 0 18px; }
+h3 { font-size: 20px; margin: 0 0 4px; }
+
+/* cards */
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+.card { background: var(--card); border: 1px solid var(--rule); border-radius: 18px; padding: 20px; }
+.game { display: flex; gap: 18px; align-items: flex-start; text-decoration: none; color: var(--ink); }
+.game img { width: 88px; height: 88px; border-radius: 22px; flex: none; }
+.game .meta { color: var(--muted); font-size: 14px; margin: 0 0 8px; }
+.game p { margin: 0 0 12px; }
+.more { border-style: dashed; display: flex; flex-direction: column; justify-content: center; color: var(--muted); }
+.pill { display: inline-block; font-size: 13px; font-weight: 700; padding: 4px 12px; border-radius: 999px; background: var(--amber-2); color: var(--navy); }
+.btn { display: inline-block; background: var(--amber); color: var(--navy); font-weight: 700; text-decoration: none; padding: 13px 26px; border-radius: 999px; }
+
+/* game page */
+.gamehead { text-align: center; padding: 48px 0 8px; }
+.gamehead .icon { width: 128px; height: 128px; border-radius: 30px; box-shadow: 0 14px 40px rgba(21, 27, 46, 0.25); }
+.gamehead h1 { font-size: clamp(34px, 6vw, 50px); margin: 18px 0 6px; letter-spacing: -0.03em; }
+.gamehead p { color: var(--muted); font-size: 19px; margin: 0 0 22px; }
+.shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; margin: 40px 0 0; }
+.shots img { width: 100%; border-radius: 16px; border: 1px solid var(--rule); display: block; }
+ul { padding-left: 22px; } li { margin-bottom: 6px; }
+
+/* documents (privacy, support) */
+.doc header { padding: 44px 0 20px; border-bottom: 2px solid var(--ink); margin-bottom: 28px; }
+.doc h1 { font-size: 34px; line-height: 1.15; margin: 0 0 8px; }
+.doc h2 { font-size: 21px; margin: 34px 0 10px; }
+.doc .muted { color: var(--muted); margin: 0; }
+.box { background: var(--card); border: 1px solid var(--rule); border-radius: 14px; padding: 16px 18px; margin: 18px 0; }
+
+footer { margin-top: 64px; border-top: 1px solid var(--rule); }
+footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding-top: 20px; padding-bottom: 40px; color: var(--muted); font-size: 14px; }

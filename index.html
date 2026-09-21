@@ -3,64 +3,72 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Orbjar - drop, merge, grow</title>
-<meta name="description" content="Orbjar is a calm drop-and-merge puzzle for Android: over a hundred levels, a daily challenge, and no ads during gameplay.">
-<style>
-  :root { --ink:#2a2138; --muted:#6e6485; --accent:#9d4edd; --bg:#faf8fd; --card:#fff; --rule:#e8e2f2; }
-  @media (prefers-color-scheme: dark) { :root { --ink:#ece7f5; --muted:#a99ebf; --bg:#151120; --card:#1e1829; --rule:#342b44; } }
-  * { box-sizing: border-box; }
-  body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif; padding:0 20px 64px; }
-  .wrap { max-width:860px; margin:0 auto; }
-  a { color:var(--accent); }
-  h2 { font-size:23px; margin:36px 0 10px; }
-  .box, .card { background:var(--card); border:1px solid var(--rule); border-radius:16px; padding:16px 18px; }
-  footer { margin-top:48px; padding-top:18px; border-top:1px solid var(--rule); color:var(--muted); font-size:14px; }
-
-  header { text-align:center; padding:56px 0 8px; }
-  .logo { width:132px; height:132px; border-radius:30px; box-shadow:0 14px 40px rgba(90,40,130,0.28); }
-  h1 { font-size:clamp(34px,6vw,50px); margin:20px 0 6px; letter-spacing:-1px; }
-  .tag { color:var(--muted); font-size:19px; margin:0 0 26px; }
-  .cta { display:inline-block; background:var(--accent); color:#fff; text-decoration:none; font-weight:700; padding:14px 30px; border-radius:999px; box-shadow:0 8px 22px rgba(157,78,221,0.35); }
-  .shots { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:14px; margin:44px 0; }
-  .shots img { width:100%; border-radius:16px; border:1px solid var(--rule); }
-  .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; margin-top:14px; }
-  .card b { display:block; margin-bottom:4px; }
-  ul { padding-left:22px; } li { margin-bottom:6px; }
-  footer { display:flex; gap:18px; flex-wrap:wrap; justify-content:space-between; }
-</style>
+<title>Seedlamp Studio</title>
+<meta name="description" content="Seedlamp Studio makes small, carefully built games and apps. First release: Orbjar, a drop-and-merge puzzle for Android.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/brand.css">
 </head>
 <body>
-<!-- Publisher name, IC, address and e-mail removed on request (2026-09-20). Nothing personal is to be public for now;
-     what goes back in before release (Play requires a support contact and a privacy policy with the controller named)
-     is still to be decided. -->
-<div class="wrap">
-  <header>
-    <img class="logo" src="icon.png" alt="Orbjar icon">
-    <h1>Orbjar</h1>
-    <p class="tag">Drop an orb. Two of a kind become the next one up. Simple to start, hard to put down.</p>
-    <a class="cta" href="https://play.google.com/store/apps/details?id=com.orbjar.game">Get it on Google Play</a>
-  </header>
-  <div class="shots">
-    <img src="shot-1.png" alt="Endless mode"><img src="shot-2.png" alt="Journey level">
-    <img src="shot-3.png" alt="Level complete"><img src="shot-4.png" alt="Evolution chart">
-  </div>
-  <h2>What makes it different</h2>
-  <div class="cards">
-    <div class="card"><b>A journey, not just a score</b>Over a hundred levels across worlds that change the rules - a narrow jar, floaty gravity, a boss at the end of every world.</div>
-    <div class="card"><b>No ads during play</b>Nothing interrupts a run. Full-screen ads appear only between rounds, and rarely.</div>
-    <div class="card"><b>A daily challenge</b>The same level for everyone in the world, every day, with a sticker album and streaks.</div>
-    <div class="card"><b>Five looks</b>Emoji faces, fruit, sweets, creatures and planets, each with its own music. Unlock them by playing or buy them outright.</div>
-  </div>
-  <h2>Good to know</h2>
-  <ul>
-    <li>Free to play, works offline, and starts in under a second.</li>
-    <li>Cloud save through Google Play Games - carry on from any phone.</li>
-    <li>One purchase removes the ads for good, if you want them gone.</li>
-  </ul>
-  <footer>
-    <span>Orbjar</span>
-    <span><a href="privacy.html">Privacy policy</a> &middot; <a href="support.html">Support</a> &middot; <a href="support.html">Contact</a></span>
-  </footer>
-</div>
+<div class="bar"><div class="wrap">
+  <a class="brand" href="./"><img src="assets/logo-dark.svg" alt="">seedlamp <span>studio</span></a>
+  <nav><a href="#games">Games</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+</div></div>
+
+<div class="hero"><div class="wrap">
+  <img class="mark" src="assets/logo-dark.svg" alt="Seedlamp Studio logo">
+  <h1>seedlamp <span>studio</span></h1>
+  <p>Small ideas that grow and give light. Independent games and apps, carefully built.</p>
+</div></div>
+
+<main class="wrap">
+  <section id="games">
+    <h2>Games</h2>
+    <div class="grid">
+      <a class="card game" href="orbjar/">
+        <img src="orbjar/icon.png" alt="Orbjar icon">
+        <div>
+          <h3>Orbjar</h3>
+          <p class="meta">Drop &amp; merge puzzle &middot; Android</p>
+          <p>Drop an orb, two of a kind become the next one up. An endless journey of worlds, a daily challenge and a card collection.</p>
+          <span class="pill">Coming soon on Google Play</span>
+        </div>
+      </a>
+      <div class="card more">
+        <h3>Next project</h3>
+        <p>Growing in the lamp light. More games and apps are on the way.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>The name</h3>
+        <p>A seed needs water and light to grow. Our logo is exactly that: a drop of water and light around a young seedling. That is how we think about our work: start small, give it care, let it grow.</p>
+      </div>
+      <div class="card">
+        <h3>How we work</h3>
+        <p>A one-person studio. Games that start in a second, respect your time and never interrupt play with ads. No dark patterns, no endless grind for its own sake.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="card">
+      <p style="margin:0">Questions, feedback or press: <a href="mailto:support@seedlamp.com">support@seedlamp.com</a><br>
+      Help with a specific game is on its support page, for example <a href="orbjar/support.html">Orbjar support</a>.</p>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">
+  <span>&copy; 2026 Seedlamp Studio</span>
+  <span><a href="orbjar/">Orbjar</a> &middot; <a href="orbjar/privacy.html">Privacy</a> &middot; <a href="orbjar/support.html">Support</a></span>
+</div></footer>
 </body>
 </html>
