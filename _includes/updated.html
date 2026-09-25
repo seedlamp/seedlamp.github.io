@@ -1,0 +1,1 @@
+{% assign upd = page.updated | default: "0000-00-00" %}{% if site.data.legal.privacy_updated > upd %}{% assign upd = site.data.legal.privacy_updated %}{% endif %}<p class="muted">Last updated: {{ upd }}</p>

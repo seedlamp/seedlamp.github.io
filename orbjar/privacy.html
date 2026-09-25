@@ -1,3 +1,6 @@
+---
+updated: "2026-09-25"
+---
 <!doctype html>
 <html lang="en">
 <head>
@@ -5,9 +8,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Orbjar privacy policy · Seedlamp Studio</title>
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/brand.css">
 </head>
 <body>
@@ -18,17 +18,12 @@
 <main class="wrap narrow doc">
 <header>
   <h1>Privacy Policy — Orbjar</h1>
-  <p class="muted">Last updated: 2026-09-21</p>
+  {% include updated.html %}
 </header>
 
 <p>Orbjar is a puzzle game for Android by Seedlamp Studio. This policy explains what data is involved when you play, who receives it and what your choices are. It is written for the game as published on Google Play.</p>
 
-<h2>Who is responsible</h2>
-<!-- TODO before release: decide whether the legal name + IČO of the controller go here (Play wants the controller identifiable). -->
-<div class="box">
-  Orbjar is developed and published by <strong>Seedlamp Studio</strong>.<br>
-  Contact: <a href="mailto:seedlampstudio@gmail.com">seedlampstudio@gmail.com</a>
-</div>
+{% include privacy-controller.html game="Orbjar" %}
 
 <h2>The short version</h2>
 <ul>
@@ -56,6 +51,12 @@
 <h2>Purchases</h2>
 <p>In-app purchases are handled by Google Play Billing. Google processes your payment; we only receive confirmation that a product was purchased, so the game can unlock it. We never see your card, address or name through purchases. Google's handling of payment data is covered by the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</p>
 
+<h2>Gift codes and updates</h2>
+<p>Gift codes are Google Play promo codes: you redeem them in Google Play, and the game only learns that the item now belongs to you, in the same way as a purchase. When a new version of the game is available, the game may ask Google Play whether an update exists and offer to install it; this check goes to Google Play only. The “What's new” notes are part of the game itself and load nothing from the internet.</p>
+
+<h2>Sharing results</h2>
+<p>When you tap Share, the game creates a picture of your result on your device and hands it to Android's share menu. Where it goes next is your choice; nothing is sent to us.</p>
+
 <h2>Google Play Games Services (optional)</h2>
 <p>If you sign in to Google Play Games, the game uses it for leaderboards and to back up your progress to your Google account (Saved Games). Your Play Games profile name may appear in leaderboards you take part in. You can sign out, hide your profile or delete Play Games data for this game in the Play Games app or at <a href="https://myaccount.google.com/">your Google account settings</a>. Sign-in is optional and the game is fully playable without it.</p>
 
@@ -66,20 +67,17 @@
 <p>The game contains no separate analytics SDK. Google Play provides us with aggregated, anonymous statistics about installs, crashes and ratings, which cannot identify individual players.</p>
 
 <h2>Children</h2>
-<p>The game is not directed at children under 13 and we do not knowingly collect data from them. Its Google Play target audience is set to 13 years and older.</p>
+<p>The game is not directed at children under 13 and we do not knowingly collect data from them. Its Google Play target audience is set to 13 years and older. In some countries (for example the Czech Republic, 15) the age at which you can consent to personalised ads yourself is higher than 13; if you are younger than that age, please choose non-personalised ads in the consent form or ask a parent.</p>
 
 <h2>Legal basis and retention (GDPR)</h2>
-<p>Where personalised advertising is used, the legal basis is your consent, which you can withdraw at any time. Non-personalised ads, fraud prevention and basic app functionality rely on legitimate interest in operating the game. Data held by Google is retained according to Google's own policies. We hold no personal database of players.</p>
+<p>Where personalised advertising is used, the legal basis is your consent, which you can withdraw at any time. Non-personalised ads, fraud prevention and basic app functionality rely on legitimate interest in operating the game. Data held by Google is retained according to Google's own policies. We hold no personal database of players, so most requests about your data are answered by pointing you to the controls described above; if they are not enough, write to us and we will help.</p>
 
-<h2>Your rights</h2>
-<p>Under the GDPR you may request access to, correction of, or deletion of personal data relating to you, object to processing, or lodge a complaint with the Czech supervisory authority, <a href="https://uoou.gov.cz/">Úřad pro ochranu osobních údajů</a>. Because the game stores no personal data on our side, most requests are answered by pointing you to the controls above; use the contact details on the support page and we will help.</p>
-
-<h2>Changes</h2>
-<p>If this policy changes, the new version is published on this page with a new date.</p>
+{% include privacy-common.html game="Orbjar" %}
 </main>
 <footer><div class="wrap">
   <span>Orbjar by <a href="../">Seedlamp Studio</a> &middot; <a href="mailto:seedlampstudio@gmail.com">seedlampstudio@gmail.com</a></span>
   <span><a href="privacy.html">Privacy policy</a> &middot; <a href="support.html">Support</a></span>
+  {% include legal-line.html %}
 </div></footer>
 </body>
 </html>

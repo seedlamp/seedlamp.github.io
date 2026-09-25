@@ -1,0 +1,6 @@
+<h2>Who is responsible</h2>
+<div class="box">
+  {% if include.game %}{{ include.game }} is developed and published by{% else %}This website and our games are run by{% endif %} <strong>{{ site.data.studio.name }}</strong>, a brand of the sole trader
+  <strong>{{ site.data.studio.owner }}</strong>, IČO {{ site.data.studio.ico }}, {{ site.data.studio.address }}, who is the controller under the GDPR.<br>
+  Contact: <a href="mailto:{{ site.data.studio.email }}">{{ site.data.studio.email }}</a>
+</div>
