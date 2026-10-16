@@ -13,11 +13,11 @@ updated: "2026-09-25"
 <body>
 <div class="bar"><div class="wrap">
   <a class="brand" href="./"><img src="assets/logo-on-dark.svg" alt="">seedlamp <span>studio</span></a>
-  <nav><a href="./#games">Games</a><a href="support.html">Support</a><a href="privacy.html">Privacy</a></nav>
+  <nav><a href="./#games">Games</a><a href="support.html">Studio support</a><a href="privacy.html">Studio privacy</a></nav>
 </div></div>
 <main class="wrap narrow doc">
 <header>
-  <h1>Privacy — Seedlamp Studio</h1>
+  <h1>Privacy - Seedlamp Studio</h1>
   {% include updated.html %}
 </header>
 
@@ -27,7 +27,7 @@ updated: "2026-09-25"
 
 <h2>Privacy policies of our games</h2>
 <ul>
-{% for g in site.data.games %}  <li><a href="{{ g.path }}privacy.html">{{ g.name }}</a> — {{ g.platforms }}</li>
+{% for g in site.data.games %}  <li><a href="{{ g.path }}privacy.html">{{ g.name }}</a> - {{ g.platforms }}</li>
 {% endfor %}</ul>
 
 <h2>This website</h2>
@@ -37,8 +37,7 @@ updated: "2026-09-25"
 </main>
 <footer><div class="wrap">
   <span>&copy; 2026 Seedlamp Studio</span>
-  <span><a href="privacy.html">Privacy</a> &middot; <a href="support.html">Support</a></span>
-  {% include legal-line.html %}
+  <span><a href="privacy.html">Studio privacy</a> &middot; <a href="support.html">Studio support</a></span>
 </div></footer>
 </body>
 </html>

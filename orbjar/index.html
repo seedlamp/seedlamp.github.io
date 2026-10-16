@@ -6,52 +6,76 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Orbjar · Seedlamp Studio</title>
-<meta name="description" content="Orbjar is a calm drop-and-merge puzzle for Android: an endless journey of worlds, a daily challenge, a card collection and no ads during gameplay.">
+<meta name="description" content="Orbjar is a calm drop-and-merge puzzle for Android. Merge the Orblings through ten worlds, beat the bosses and crown the Orb King.">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/brand.css">
+<style>.shots.six { grid-template-columns: repeat(6, 1fr); } @media (max-width: 860px) { .shots.six { grid-template-columns: repeat(3, 1fr); } } @media (max-width: 520px) { .shots.six { grid-template-columns: repeat(2, 1fr); } }
+.shots.six img { cursor: zoom-in; }
+#lb { position: fixed; inset: 0; z-index: 50; background: rgba(8,10,20,.92); display: flex; align-items: center; justify-content: center; }
+#lb[hidden] { display: none; }
+#lb img { max-width: 92vw; max-height: 92vh; border-radius: 18px; box-shadow: 0 20px 60px rgba(0,0,0,.5); cursor: zoom-out; }
+#lb button { position: absolute; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; border-radius: 50%; border: 0; background: rgba(255,255,255,.14); color: #fff; font-size: 26px; cursor: pointer; }
+#lb .prev { left: 16px; } #lb .next { right: 16px; } #lb .close { top: 28px; right: 16px; transform: none; }
+@media (max-width: 520px) { #lb button.prev, #lb button.next { display: none; } }</style>
 </head>
 <body>
 <div class="bar"><div class="wrap">
   <a class="brand" href="../"><img src="../assets/logo-on-dark.svg" alt="">seedlamp <span>studio</span></a>
-  <nav><a href="../#games">Games</a><a href="support.html">Support</a><a href="privacy.html">Privacy</a></nav>
+  <nav><a href="./">Orbjar</a><a href="support.html">Orbjar support</a><a href="privacy.html">Orbjar privacy</a></nav>
 </div></div>
 
 <main class="wrap">
   <div class="gamehead">
     <img class="icon" src="icon.png" alt="Orbjar icon">
     <h1>Orbjar</h1>
-    <p>Drop an orb. Two of a kind become the next one up. Simple to start, hard to put down.</p>
+    <p>Merge the Orblings through ten worlds, beat the bosses and crown the Orb King!</p>
     <span class="pill">Coming soon on Google Play</span>
   </div>
-  <div class="shots">
-    <img src="shot-1.png" alt="Endless mode"><img src="shot-2.png" alt="Journey level">
-    <img src="shot-3.png" alt="Level complete"><img src="shot-4.png" alt="Evolution chart">
+  <div class="shots six">
+    <img src="shot-1.jpg" alt="Drop, merge, grow: two of a kind make one bigger" loading="lazy"><img src="shot-2.jpg" alt="Ten worlds, ten twists" loading="lazy">
+    <img src="shot-3.jpg" alt="Beat the bosses" loading="lazy"><img src="shot-4.jpg" alt="Dress up for the seasons" loading="lazy">
+    <img src="shot-5.jpg" alt="Pick your look" loading="lazy"><img src="shot-6.jpg" alt="Collect and compete" loading="lazy">
   </div>
 
   <section>
-    <h2>What makes it different</h2>
+    <h2>Meet the Orblings</h2>
+    <p>Tiny round travellers with big dreams. Drop them into the jar, match two of a kind and watch them grow, all the way to the Orb King.</p>
+  </section>
+  <section>
     <div class="grid">
-      <div class="card"><h3>A journey, not just a score</h3>An endless ladder of worlds, each with its own twist, a signature level and a boss at the end.</div>
-      <div class="card"><h3>No ads during play</h3>Nothing interrupts a run. Full-screen ads appear only between rounds, and rarely.</div>
-      <div class="card"><h3>A daily challenge</h3>The same level for everyone in the world, every day, with card packs as the reward.</div>
-      <div class="card"><h3>Collect and style</h3>A 100-card collection, jars to unlock and five looks: emoji, fruit, sweets, creatures and planets.</div>
+      <div class="card"><h3>Ten worlds, ten twists</h3>Every world is home to one of the Orblings, and every world changes the rules of the jar. Learn them all on the way to the Crown Realm.</div>
+      <div class="card"><h3>A boss in every world</h3>Each world ends with a boss fight - and every boss has a trick of its own.</div>
+      <div class="card"><h3>Dress up</h3>Unlock new looks for the whole game, and see what the Orblings wear when the seasons change.</div>
+      <div class="card"><h3>Play your way</h3>Travel the Journey, go further in the Master Journey with special rewards, chase your best score in Endless, or take on a new Daily Challenge every day.</div>
+      <div class="card"><h3>Collect and compete</h3>Grow your collection, complete goals, climb the leaderboards and share your results with friends.</div>
+      <div class="card"><h3>Music made for Orbjar</h3>Original music that changes with the worlds and the looks.</div>
     </div>
   </section>
-
   <section>
-    <h2>Good to know</h2>
-    <ul>
-      <li>Free to play, works offline, and starts in under a second.</li>
-      <li>Cloud save through Google Play Games: carry on from any phone.</li>
-      <li>One purchase removes the ads for good, if you want them gone.</li>
-    </ul>
+    <h2>Calm by design</h2>
+    <p>No timers, no energy, no coins. Ads never interrupt a round, and one purchase removes them for good. Free to play, works offline, cloud save with Google Play Games.</p>
   </section>
 </main>
+<div id="lb" hidden role="dialog" aria-label="Screenshot"><img alt=""><button class="prev" aria-label="Previous">&#8249;</button><button class="next" aria-label="Next">&#8250;</button><button class="close" aria-label="Close">&#215;</button></div>
+<script>
+(() => {   // click a screenshot: the big version, arrows / swipe to flip, tap / Esc to close
+  const shots = [...document.querySelectorAll('.shots.six img')], lb = document.getElementById('lb'), big = lb.querySelector('img');
+  let i = 0, x0 = null;
+  const show = n => { i = (n + shots.length) % shots.length; big.src = shots[i].src.replace('.jpg', '-large.jpg'); big.alt = shots[i].alt; lb.hidden = false; };
+  const close = () => { lb.hidden = true; };
+  shots.forEach((im, n) => im.addEventListener('click', () => show(n)));
+  lb.querySelector('.prev').onclick = e => { e.stopPropagation(); show(i - 1); };
+  lb.querySelector('.next').onclick = e => { e.stopPropagation(); show(i + 1); };
+  lb.addEventListener('click', close);
+  document.addEventListener('keydown', e => { if (lb.hidden) return; if (e.key === 'Escape') close(); if (e.key === 'ArrowLeft') show(i - 1); if (e.key === 'ArrowRight') show(i + 1); });
+  lb.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener('touchend', e => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0; x0 = null; if (Math.abs(dx) > 40) { e.preventDefault(); show(i + (dx < 0 ? 1 : -1)); } });
+})();
+</script>
 
 <footer><div class="wrap">
-  <span>Orbjar by <a href="../">Seedlamp Studio</a></span>
-  <span><a href="privacy.html">Privacy policy</a> &middot; <a href="support.html">Support</a></span>
-  {% include legal-line.html %}
+  <span>&copy; 2026 <a href="../">Seedlamp Studio</a></span>
+  <span><a href="../privacy.html">Studio privacy</a> &middot; <a href="../support.html">Studio support</a></span>
 </div></footer>
 </body>
 </html>
