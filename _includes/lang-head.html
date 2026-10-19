@@ -5,7 +5,9 @@
 <link rel="alternate" hreflang="x-default" href="https://seedlamp.github.io{{ en_url }}">
 <script>
 (function () {
-  var want; try { want = localStorage.getItem('lang'); } catch (e) {}
+  var want, q = /[?&]lang=(cs|en)\b/.exec(location.search);   // ?lang=: the game opens its policy in the game's language
+  if (q) { try { localStorage.setItem('lang', q[1]); } catch (e) {} return; }
+  try { want = localStorage.getItem('lang'); } catch (e) {}
   if (want !== 'cs' && want !== 'en') {
     if (document.referrer.indexOf(location.origin + '/') === 0) return;   // moving around the site (or the switch with storage blocked): keep the page
     var l = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase(); want = l.indexOf('cs') === 0 ? 'cs' : 'en';
