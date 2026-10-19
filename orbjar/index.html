@@ -10,14 +10,20 @@
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/brand.css">
 {% include lang-head.html %}
-<style>.shots.six { grid-template-columns: repeat(6, 1fr); } @media (max-width: 860px) { .shots.six { grid-template-columns: repeat(3, 1fr); } } @media (max-width: 520px) { .shots.six { grid-template-columns: repeat(2, 1fr); } }
-.shots.six img { cursor: zoom-in; }
+<style>.shots.eight { grid-template-columns: repeat(4, 1fr); } .banner { display: block; width: 100%; max-width: 760px; margin: 18px auto 28px; border-radius: 18px; } @media (max-width: 520px) { .shots.eight { grid-template-columns: repeat(2, 1fr); } }
+.shots.eight img { cursor: zoom-in; }
 #lb { position: fixed; inset: 0; z-index: 50; background: rgba(8,10,20,.92); display: flex; align-items: center; justify-content: center; }
 #lb[hidden] { display: none; }
 #lb img { max-width: 92vw; max-height: 92vh; border-radius: 18px; box-shadow: 0 20px 60px rgba(0,0,0,.5); cursor: zoom-out; }
 #lb button { position: absolute; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; border-radius: 50%; border: 0; background: rgba(255,255,255,.14); color: #fff; font-size: 26px; cursor: pointer; }
 #lb .prev { left: 16px; } #lb .next { right: 16px; } #lb .close { top: 28px; right: 16px; transform: none; }
-@media (max-width: 520px) { #lb button.prev, #lb button.next { display: none; } }</style>
+@media (max-width: 520px) { #lb button.prev, #lb button.next { display: none; } }.video { position: relative; max-width: 760px; margin: 0 auto; aspect-ratio: 16 / 9; border-radius: 18px; overflow: hidden; background: #000; }
+.video button { all: unset; cursor: pointer; display: block; width: 100%; height: 100%; position: relative; }
+.video img, .video iframe { display: block; width: 100%; height: 100%; object-fit: cover; border: 0; }
+.video .play { position: absolute; left: 50%; top: 50%; width: 76px; height: 76px; margin: -38px 0 0 -38px; border-radius: 50%; background: var(--amber); box-shadow: 0 8px 30px rgba(0,0,0,.4); }
+.video .play::after { content: ""; position: absolute; left: 30px; top: 22px; border-style: solid; border-width: 16px 0 16px 26px; border-color: transparent transparent transparent var(--navy); }
+.video + p { text-align: center; font-size: 14px; }
+</style>
 </head>
 <body>
 <div class="bar"><div class="wrap">
@@ -32,12 +38,24 @@
     <p>Merge the Orblings through ten worlds, beat the bosses and crown the Orb King!</p>
     <span class="pill">Coming soon on Google Play</span>
   </div>
-  <div class="shots six">
-    <img src="shot-1.jpg" alt="Drop, merge, grow: two of a kind make one bigger" loading="lazy"><img src="shot-2.jpg" alt="Ten worlds, ten twists" loading="lazy">
-    <img src="shot-3.jpg" alt="Beat the bosses" loading="lazy"><img src="shot-4.jpg" alt="Dress up for the seasons" loading="lazy">
-    <img src="shot-5.jpg" alt="Pick your look" loading="lazy"><img src="shot-6.jpg" alt="Collect and compete" loading="lazy">
+  <img class="banner" src="press/orbjar-feature-graphic-en.png" alt="Orbjar - drop, merge, grow">
+  <h2 style="margin-top:36px">Screenshots</h2>
+  <div class="shots eight">
+    <img src="press/shot-01.jpg" alt="Meet the Orblings" loading="lazy">
+    <img src="press/shot-02.jpg" alt="Drop, merge, grow" loading="lazy">
+    <img src="press/shot-03.jpg" alt="Your journey starts here" loading="lazy">
+    <img src="press/shot-04.jpg" alt="Ten worlds, ten twists" loading="lazy">
+    <img src="press/shot-05.jpg" alt="Beat the bosses" loading="lazy">
+    <img src="press/shot-06.jpg" alt="Dress up for the seasons" loading="lazy">
+    <img src="press/shot-07.jpg" alt="Pick your look" loading="lazy">
+    <img src="press/shot-08.jpg" alt="Collect and compete" loading="lazy">
   </div>
 
+  <section>
+    <h2>Trailer</h2>
+    <div class="video" data-yt="yZhWNakgB-4" data-title="Orbjar trailer"><button aria-label="Play the Orbjar trailer"><img src="press/trailer-poster.jpg" alt="Orbjar trailer" loading="lazy"><span class="play"></span></button></div>
+    <p class="muted">The video loads from YouTube when you press play.</p>
+  </section>
   <section>
     <h2>Meet the Orblings</h2>
     <p>Tiny round travellers with big dreams. Drop them into the jar, match two of a kind and watch them grow, all the way to the Orb King.</p>
@@ -60,7 +78,7 @@
 <div id="lb" hidden role="dialog" aria-label="Screenshot"><img alt=""><button class="prev" aria-label="Previous">&#8249;</button><button class="next" aria-label="Next">&#8250;</button><button class="close" aria-label="Close">&#215;</button></div>
 <script>
 (() => {   // click a screenshot: the big version, arrows / swipe to flip, tap / Esc to close
-  const shots = [...document.querySelectorAll('.shots.six img')], lb = document.getElementById('lb'), big = lb.querySelector('img');
+  const shots = [...document.querySelectorAll('.shots.eight img')], lb = document.getElementById('lb'), big = lb.querySelector('img');
   let i = 0, x0 = null;
   const show = n => { i = (n + shots.length) % shots.length; big.src = shots[i].src.replace('.jpg', '-large.jpg'); big.alt = shots[i].alt; lb.hidden = false; };
   const close = () => { lb.hidden = true; };
@@ -74,6 +92,14 @@
 })();
 </script>
 
+<script>
+(() => {   // trailer: our own picture first; YouTube (privacy-enhanced mode) loads only after the click
+  const v = document.querySelector('.video'); if (!v) return;
+  v.querySelector('button').addEventListener('click', () => {
+    v.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + v.dataset.yt + '?autoplay=1&rel=0" title="' + v.dataset.title + '" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+  });
+})();
+</script>
 <footer><div class="wrap">
   <span>&copy; 2026 <a href="../">Seedlamp Studio</a></span>
   <span><a href="../privacy.html">Studio privacy</a> &middot; <a href="../support.html">Studio support</a></span>
