@@ -1,0 +1,1 @@
+{%- if page.lang == 'cs' -%}<a class="lang" href="{{ page.url | remove_first: '/cs' }}" hreflang="en" lang="en" onclick="try{localStorage.setItem('lang','en')}catch(e){}">English</a>{%- else -%}<a class="lang" href="/cs{{ page.url }}" hreflang="cs" lang="cs" onclick="try{localStorage.setItem('lang','cs')}catch(e){}">Česky</a>{%- endif -%}

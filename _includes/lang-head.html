@@ -1,0 +1,15 @@
+{%- comment -%} Pages with a Czech twin under /cs/: hreflang links + pick the language on entry (stored choice; else, when arriving from outside the site, the browser language: cs -> Czech, anything else -> English). {%- endcomment -%}
+{%- if page.lang == 'cs' -%}{%- assign cs_url = page.url -%}{%- assign en_url = page.url | remove_first: '/cs' -%}{%- else -%}{%- assign en_url = page.url -%}{%- assign cs_url = page.url | prepend: '/cs' -%}{%- endif %}
+<link rel="alternate" hreflang="en" href="https://seedlamp.github.io{{ en_url }}">
+<link rel="alternate" hreflang="cs" href="https://seedlamp.github.io{{ cs_url }}">
+<link rel="alternate" hreflang="x-default" href="https://seedlamp.github.io{{ en_url }}">
+<script>
+(function () {
+  var want; try { want = localStorage.getItem('lang'); } catch (e) {}
+  if (want !== 'cs' && want !== 'en') {
+    if (document.referrer.indexOf(location.origin + '/') === 0) return;   // moving around the site (or the switch with storage blocked): keep the page
+    var l = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase(); want = l.indexOf('cs') === 0 ? 'cs' : 'en';
+  }
+  if (want !== '{{ page.lang | default: "en" }}') location.replace((want === 'cs' ? '{{ cs_url }}' : '{{ en_url }}') + location.hash);
+})();
+</script>

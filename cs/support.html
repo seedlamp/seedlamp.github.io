@@ -1,0 +1,38 @@
+---
+lang: cs
+---
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Podpora · Seedlamp Studio</title>
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/brand.css">
+{% include lang-head.html %}
+</head>
+<body>
+<div class="bar"><div class="wrap">
+  <a class="brand" href="./"><img src="../assets/logo-on-dark.svg" alt="">seedlamp <span>studio</span></a>
+  <nav><a href="./#games">Hry</a><a href="support.html">Podpora studia</a><a href="privacy.html">Soukromí studia</a>{% include lang-switch.html %}</nav>
+</div></div>
+<main class="wrap narrow doc">
+<header>
+  <h1>Podpora</h1>
+  <p class="muted">Problémy, dotazy a ztracený postup - vyřizuje je jeden člověk, obvykle do pár dnů.</p>
+</header>
+{% include support-contact.html hint="Napiš prosím, o kterou hru jde a jaké máš zařízení - většina problémů je pak hned jasná." %}
+<h2>Pomoc ke každé hře</h2>
+<p>Odpovědi na časté dotazy najdeš na stránce podpory každé hry:</p>
+<ul>
+{% for g in site.data.games %}  <li><a href="{{ g.path }}support.html">Podpora {{ g.name }}</a> - {{ g.platforms }}</li>
+{% endfor %}</ul>
+<h2>Soukromí</h2>
+<p>Viz <a href="privacy.html">stránka o ochraně soukromí studia</a> a zásady ochrany osobních údajů každé hry.</p>
+</main>
+<footer><div class="wrap">
+  <span>&copy; 2026 Seedlamp Studio</span>
+  <span><a href="privacy.html">Soukromí studia</a> &middot; <a href="support.html">Podpora studia</a></span>
+</div></footer>
+</body>
+</html>

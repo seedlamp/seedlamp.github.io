@@ -1,8 +1,17 @@
-<h2>When you contact us</h2>
+{% if page.lang == 'cs' %}<h2>Když nám napíšeš</h2>
+<p>Když nám pošleš e-mail, dostaneme tvou e-mailovou adresu, zprávu a vše, co přiložíš (například model zařízení nebo snímek obrazovky). Použijeme to jen k odpovědi a k opravě problému, který hlásíš, a to na základě našeho oprávněného zájmu pomáhat hráčům. Konverzaci uchováváme jen po dobu nutnou k jejímu vyřízení. Naši poštovní schránku provozuje Google (Gmail).</p>
+
+<h2>Tvoje práva</h2>
+<p>Podle GDPR můžeš požádat o přístup k osobním údajům, které se tě týkají, o jejich opravu nebo výmaz, můžeš požádat o omezení zpracování, vznést námitku proti zpracování a odvolat udělený souhlas. Napiš na <a href="mailto:{{ site.data.studio.email }}">{{ site.data.studio.email }}</a>; odpovíme do jednoho měsíce. Stížnost můžeš podat také u <a href="https://uoou.gov.cz/">Úřadu pro ochranu osobních údajů</a> nebo u dozorového úřadu ve své zemi.</p>
+
+<h2>Změny</h2>
+<p>Pokud se tyto zásady změní, nová verze se objeví na této stránce s novým datem.{% if include.game %} Části společné pro všechny hry {{ site.data.studio.name }} a zásady pro náš web najdeš na <a href="/cs/privacy.html">stránce o ochraně soukromí studia</a>.{% endif %}</p>
+
+<p class="muted">Tento překlad slouží pro tvé pohodlí. Pokud by se od <a href="{{ page.url | remove_first: '/cs' }}">anglické verze</a> v něčem lišil, platí anglická verze.</p>{% else %}<h2>When you contact us</h2>
 <p>If you email us, we receive your email address, your message and anything you attach (for example your device model or a screenshot). We use it only to answer you and to fix the problem you report, based on our legitimate interest in supporting our players. We keep the conversation only as long as needed to handle it. Our mailbox is hosted by Google (Gmail).</p>
 
 <h2>Your rights</h2>
 <p>Under the GDPR you may request access to, correction or deletion of personal data relating to you, ask us to restrict its processing, object to processing, and withdraw any consent you gave. Write to <a href="mailto:{{ site.data.studio.email }}">{{ site.data.studio.email }}</a>; we answer within one month. You can also lodge a complaint with the Czech supervisory authority, <a href="https://uoou.gov.cz/">Úřad pro ochranu osobních údajů</a>, or with the authority in your own country.</p>
 
 <h2>Changes</h2>
-<p>If this policy changes, the new version is published on this page with a new date.{% if include.game %} The parts shared by all {{ site.data.studio.name }} games, and the policy for our website, are on the <a href="/privacy.html">studio privacy page</a>.{% endif %}</p>
+<p>If this policy changes, the new version is published on this page with a new date.{% if include.game %} The parts shared by all {{ site.data.studio.name }} games, and the policy for our website, are on the <a href="/privacy.html">studio privacy page</a>.{% endif %}</p>{% endif %}

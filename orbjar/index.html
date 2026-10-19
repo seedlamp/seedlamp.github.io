@@ -9,6 +9,7 @@
 <meta name="description" content="Orbjar is a calm drop-and-merge puzzle for Android. Merge the Orblings through ten worlds, beat the bosses and crown the Orb King.">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../assets/brand.css">
+{% include lang-head.html %}
 <style>.shots.six { grid-template-columns: repeat(6, 1fr); } @media (max-width: 860px) { .shots.six { grid-template-columns: repeat(3, 1fr); } } @media (max-width: 520px) { .shots.six { grid-template-columns: repeat(2, 1fr); } }
 .shots.six img { cursor: zoom-in; }
 #lb { position: fixed; inset: 0; z-index: 50; background: rgba(8,10,20,.92); display: flex; align-items: center; justify-content: center; }
@@ -21,7 +22,7 @@
 <body>
 <div class="bar"><div class="wrap">
   <a class="brand" href="../"><img src="../assets/logo-on-dark.svg" alt="">seedlamp <span>studio</span></a>
-  <nav><a href="./">Orbjar</a><a href="support.html">Orbjar support</a><a href="privacy.html">Orbjar privacy</a></nav>
+  <nav><a href="./">Orbjar</a><a href="support.html">Orbjar support</a><a href="privacy.html">Orbjar privacy</a>{% include lang-switch.html %}</nav>
 </div></div>
 
 <main class="wrap">

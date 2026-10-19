@@ -1,0 +1,83 @@
+---
+lang: cs
+---
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Orbjar · Seedlamp Studio</title>
+<meta name="description" content="Orbjar je klidný hlavolam pro Android: pouštěj a spojuj. Proveď Orblíky deseti světy, poraz bosse a korunuj Krále Orbů.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../assets/brand.css">
+{% include lang-head.html %}
+<style>.shots.six { grid-template-columns: repeat(6, 1fr); } @media (max-width: 860px) { .shots.six { grid-template-columns: repeat(3, 1fr); } } @media (max-width: 520px) { .shots.six { grid-template-columns: repeat(2, 1fr); } }
+.shots.six img { cursor: zoom-in; }
+#lb { position: fixed; inset: 0; z-index: 50; background: rgba(8,10,20,.92); display: flex; align-items: center; justify-content: center; }
+#lb[hidden] { display: none; }
+#lb img { max-width: 92vw; max-height: 92vh; border-radius: 18px; box-shadow: 0 20px 60px rgba(0,0,0,.5); cursor: zoom-out; }
+#lb button { position: absolute; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; border-radius: 50%; border: 0; background: rgba(255,255,255,.14); color: #fff; font-size: 26px; cursor: pointer; }
+#lb .prev { left: 16px; } #lb .next { right: 16px; } #lb .close { top: 28px; right: 16px; transform: none; }
+@media (max-width: 520px) { #lb button.prev, #lb button.next { display: none; } }</style>
+</head>
+<body>
+<div class="bar"><div class="wrap">
+  <a class="brand" href="../"><img src="../../assets/logo-on-dark.svg" alt="">seedlamp <span>studio</span></a>
+  <nav><a href="./">Orbjar</a><a href="support.html">Podpora Orbjar</a><a href="privacy.html">Soukromí Orbjar</a>{% include lang-switch.html %}</nav>
+</div></div>
+
+<main class="wrap">
+  <div class="gamehead">
+    <img class="icon" src="../../orbjar/icon.png" alt="Ikona Orbjar">
+    <h1>Orbjar</h1>
+    <p>Proveď Orblíky deseti světy, poraz bosse a korunuj Krále Orbů!</p>
+    <span class="pill">Už brzy na Google Play</span>
+  </div>
+  <div class="shots six">
+    <img src="shot-1.jpg" alt="Pouštěj, spojuj, zvětšuj: ze dvou stejných vznikne jeden větší" loading="lazy"><img src="shot-2.jpg" alt="Deset světů, deset zvratů" loading="lazy">
+    <img src="shot-3.jpg" alt="Poraz bosse" loading="lazy"><img src="shot-4.jpg" alt="Převleč se na roční období" loading="lazy">
+    <img src="shot-5.jpg" alt="Vyber si vzhled" loading="lazy"><img src="shot-6.jpg" alt="Sbírej a soupeř" loading="lazy">
+  </div>
+
+  <section>
+    <h2>Seznam se s Orblíky</h2>
+    <p>Malí kulatí cestovatelé s velkými sny. Pouštěj je do nádoby, spojuj dva stejné a sleduj, jak rostou, až v samotného Krále Orbů.</p>
+  </section>
+  <section>
+    <div class="grid">
+      <div class="card"><h3>Deset světů, deset zvratů</h3>Každý svět je domovem jednoho z Orblíků a každý mění pravidla nádoby. Poznej je všechny na cestě do Korunní říše.</div>
+      <div class="card"><h3>Boss v každém světě</h3>Na konci každého světa čeká souboj s bossem - a každý boss má svůj vlastní trik.</div>
+      <div class="card"><h3>Převleč se</h3>Odemykej nové vzhledy celé hry a uvidíš, co si Orblíci oblečou, když se změní roční období.</div>
+      <div class="card"><h3>Hraj po svém</h3>Vydej se na Výpravu, pokračuj v Mistrovské výpravě se zvláštními odměnami, překonávej rekord ve Volné hře nebo si každý den zahraj novou Denní výzvu.</div>
+      <div class="card"><h3>Sbírej a soupeř</h3>Rozšiřuj svou sbírku, plň cíle, stoupej v žebříčcích a sdílej své výsledky s přáteli.</div>
+      <div class="card"><h3>Hudba pro Orbjar</h3>Původní hudba, která se mění se světy i vzhledy.</div>
+    </div>
+  </section>
+  <section>
+    <h2>V klidu</h2>
+    <p>Žádné časovače, žádná energie, žádné mince. Reklamy nikdy nepřeruší kolo a jediný nákup je odstraní navždy. Hra je zdarma, hraje se i offline a postup se ukládá do cloudu přes Hry Google Play.</p>
+  </section>
+</main>
+<div id="lb" hidden role="dialog" aria-label="Snímek obrazovky"><img alt=""><button class="prev" aria-label="Předchozí">&#8249;</button><button class="next" aria-label="Další">&#8250;</button><button class="close" aria-label="Zavřít">&#215;</button></div>
+<script>
+(() => {   // click a screenshot: the big version, arrows / swipe to flip, tap / Esc to close
+  const shots = [...document.querySelectorAll('.shots.six img')], lb = document.getElementById('lb'), big = lb.querySelector('img');
+  let i = 0, x0 = null;
+  const show = n => { i = (n + shots.length) % shots.length; big.src = shots[i].src.replace('.jpg', '-large.jpg'); big.alt = shots[i].alt; lb.hidden = false; };
+  const close = () => { lb.hidden = true; };
+  shots.forEach((im, n) => im.addEventListener('click', () => show(n)));
+  lb.querySelector('.prev').onclick = e => { e.stopPropagation(); show(i - 1); };
+  lb.querySelector('.next').onclick = e => { e.stopPropagation(); show(i + 1); };
+  lb.addEventListener('click', close);
+  document.addEventListener('keydown', e => { if (lb.hidden) return; if (e.key === 'Escape') close(); if (e.key === 'ArrowLeft') show(i - 1); if (e.key === 'ArrowRight') show(i + 1); });
+  lb.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener('touchend', e => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0; x0 = null; if (Math.abs(dx) > 40) { e.preventDefault(); show(i + (dx < 0 ? 1 : -1)); } });
+})();
+</script>
+
+<footer><div class="wrap">
+  <span>&copy; 2026 <a href="../">Seedlamp Studio</a></span>
+  <span><a href="../privacy.html">Soukromí studia</a> &middot; <a href="../support.html">Podpora studia</a></span>
+</div></footer>
+</body>
+</html>

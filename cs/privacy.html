@@ -1,0 +1,45 @@
+---
+lang: cs
+updated: "2026-10-19"
+---
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ochrana soukromí · Seedlamp Studio</title>
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/brand.css">
+{% include lang-head.html %}
+</head>
+<body>
+<div class="bar"><div class="wrap">
+  <a class="brand" href="./"><img src="../assets/logo-on-dark.svg" alt="">seedlamp <span>studio</span></a>
+  <nav><a href="./#games">Hry</a><a href="support.html">Podpora studia</a><a href="privacy.html">Soukromí studia</a>{% include lang-switch.html %}</nav>
+</div></div>
+<main class="wrap narrow doc">
+<header>
+  <h1>Ochrana soukromí - Seedlamp Studio</h1>
+  {% include updated.html %}
+</header>
+
+<p>Tato stránka se týká tohoto webu a toho, co platí pro všechny hry Seedlamp Studio. Každá hra má navíc vlastní zásady ochrany osobních údajů, které přesně popisují, co daná hra s údaji dělá; když hraješ nějakou hru, platí pro tebe hlavně její zásady.</p>
+
+{% include privacy-controller.html %}
+
+<h2>Zásady ochrany osobních údajů našich her</h2>
+<ul>
+{% for g in site.data.games %}  <li><a href="{{ g.path }}privacy.html">{{ g.name }}</a> - {{ g.platforms }}</li>
+{% endfor %}</ul>
+
+<h2>Tento web</h2>
+<p>Tento web nepoužívá žádné cookies, žádnou analytiku, žádnou reklamu ani obsah z jiných webů; i písma se načítají odsud. Web běží na službě GitHub Pages společnosti GitHub, Inc. Když otevřeš stránku, GitHub zpracovává technické údaje, jako je tvoje IP adresa, aby ti stránku doručil a udržel službu bezpečnou, jak popisuje <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub General Privacy Statement</a>. Tyto záznamy nedostáváme. Pokud si jazyk webu přepneš ručně, tvoje volba se zapamatuje v prohlížeči (local storage), aby se další stránka otevřela ve stejném jazyce; z tvého zařízení nikam neodchází.</p>
+
+{% include privacy-common.html %}
+</main>
+<footer><div class="wrap">
+  <span>&copy; 2026 Seedlamp Studio</span>
+  <span><a href="privacy.html">Soukromí studia</a> &middot; <a href="support.html">Podpora studia</a></span>
+</div></footer>
+</body>
+</html>

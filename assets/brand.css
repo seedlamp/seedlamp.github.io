@@ -75,3 +75,7 @@ ul { padding-left: 22px; } li { margin-bottom: 6px; }
 footer { margin-top: 64px; border-top: 1px solid var(--rule); }
 footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding-top: 20px; padding-bottom: 40px; color: var(--muted); font-size: 14px; }
 footer .legal { flex-basis: 100%; font-size: 13px; }
+
+/* language switch (EN | CZ twin pages) */
+.bar nav { flex-wrap: wrap; row-gap: 4px; }
+.bar nav a.lang { border: 1px solid #4A5578; border-radius: 999px; padding: 0 10px; }
