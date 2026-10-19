@@ -17,6 +17,17 @@ lang: cs
 .facts dt { font-weight: 700; } .facts dd { margin: 0; }
 .dl { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
 .dl a { font-size: 14px; }
+.logos { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; margin-top: 8px; }
+.logos .tile { border-radius: 18px; padding: 20px; border: 1px solid var(--rule); }
+.logos .tile img { display: block; width: 100%; height: auto; margin: 6px 0 14px; }
+.logos .tile p { margin: 0 0 4px; font-weight: 700; }
+.logos .on-light { background: #FFFFFF; color: #151B2E; }
+.logos .on-dark { background: #151B2E; color: #F4F5FA; }
+.logos .icon { background: var(--card); }
+.shots.eight { grid-template-columns: repeat(4, 1fr); } @media (max-width: 620px) { .shots.eight { grid-template-columns: repeat(2, 1fr); } }
+.logos .tile.wide { grid-column: 1 / -1; }
+.logos .tile .dl { margin-top: 8px; }
+.logos .tile img.gameicon { width: 96px; border-radius: 22px; }
 @media (max-width: 520px) { .facts { grid-template-columns: 1fr; } .facts dd { margin-bottom: 8px; } }
 </style>
 </head>
@@ -69,23 +80,31 @@ lang: cs
 
   <section>
     <h2>Snímky obrazovky</h2>
-    <p>Po kliknutí se otevře plná velikost. Anglické verze jsou na <a href="/orbjar/press.html">anglické stránce</a>.</p>
-    <div class="shots">
-      <a href="shot-1-large.jpg"><img src="shot-1.jpg" alt="Pouštěj, spojuj, zvětšuj" loading="lazy"></a>
-      <a href="shot-2-large.jpg"><img src="shot-2.jpg" alt="Deset světů, deset zvratů" loading="lazy"></a>
-      <a href="shot-3-large.jpg"><img src="shot-3.jpg" alt="Poraz bosse" loading="lazy"></a>
-      <a href="shot-4-large.jpg"><img src="shot-4.jpg" alt="Převleč se na roční období" loading="lazy"></a>
-      <a href="shot-5-large.jpg"><img src="shot-5.jpg" alt="Vyber si vzhled" loading="lazy"></a>
-      <a href="shot-6-large.jpg"><img src="shot-6.jpg" alt="Sbírej a soupeř" loading="lazy"></a>
+    <p>Stejných 8 snímků jako na Google Play. Po kliknutí se otevře plná velikost (1080 x 1920). Anglické verze jsou na <a href="/orbjar/press.html">anglické stránce</a>.</p>
+    <div class="shots eight">
+      <a href="press/shot-01-large.jpg"><img src="press/shot-01.jpg" alt="Seznam se s Orblíky" loading="lazy"></a>
+      <a href="press/shot-02-large.jpg"><img src="press/shot-02.jpg" alt="Pouštěj, spojuj, zvětšuj" loading="lazy"></a>
+      <a href="press/shot-03-large.jpg"><img src="press/shot-03.jpg" alt="Tvoje výprava začíná" loading="lazy"></a>
+      <a href="press/shot-04-large.jpg"><img src="press/shot-04.jpg" alt="Deset světů, deset zvratů" loading="lazy"></a>
+      <a href="press/shot-05-large.jpg"><img src="press/shot-05.jpg" alt="Poraz bosse" loading="lazy"></a>
+      <a href="press/shot-06-large.jpg"><img src="press/shot-06.jpg" alt="Převleč se podle sezóny" loading="lazy"></a>
+      <a href="press/shot-07-large.jpg"><img src="press/shot-07.jpg" alt="Vyber si vzhled" loading="lazy"></a>
+      <a href="press/shot-08-large.jpg"><img src="press/shot-08.jpg" alt="Sbírej a soupeř" loading="lazy"></a>
     </div>
+    <div class="dl"><a class="btn" href="press/orbjar-screenshots-cs.zip" download>Všech 8 snímků (ZIP)</a></div>
   </section>
 
   <section>
-    <h2>Logo a ikona</h2>
-    <div class="dl">
-      <a class="btn" href="../../orbjar/icon.png" download>Ikona hry (PNG)</a>
-      <a class="btn" href="../../assets/logo-on-light.svg" download>Logo studia, světlé (SVG)</a>
-      <a class="btn" href="../../assets/logo-on-dark.svg" download>Logo studia, tmavé (SVG)</a>
+    <h2>Logo a grafika</h2>
+    <div class="logos">
+      <div class="tile on-light"><p>Pro světlé pozadí</p><img src="../../assets/seedlamp-studio-logo-for-light-bg-transparent.png" alt="Logo Seedlamp Studio pro světlé pozadí">
+        <div class="dl"><a class="btn" href="../../assets/seedlamp-studio-logo-for-light-bg-transparent.png" download>PNG, průhledné</a><a class="btn" href="../../assets/seedlamp-studio-logo-white-bg.png" download>PNG, bílé pozadí</a><a class="btn" href="../../assets/logo-on-light.svg" download="seedlamp-studio-icon-for-light-bg.svg">Jen ikona, SVG</a></div></div>
+      <div class="tile on-dark"><p>Pro tmavé pozadí</p><img src="../../assets/seedlamp-studio-logo-for-dark-bg-transparent.png" alt="Logo Seedlamp Studio pro tmavé pozadí">
+        <div class="dl"><a class="btn" href="../../assets/seedlamp-studio-logo-for-dark-bg-transparent.png" download>PNG, průhledné</a><a class="btn" href="../../assets/seedlamp-studio-logo-navy-bg.png" download>PNG, tmavé pozadí</a><a class="btn" href="../../assets/logo-on-dark.svg" download="seedlamp-studio-icon-for-dark-bg.svg">Jen ikona, SVG</a></div></div>
+      <div class="tile icon"><p>Ikona hry</p><img class="gameicon" src="../../orbjar/icon.png" alt="Ikona hry Orbjar">
+        <div class="dl"><a class="btn" href="../../orbjar/icon.png" download="orbjar-icon.png">PNG</a></div></div>
+      <div class="tile icon wide"><p>Banner z obchodu (1024 x 500)</p><img src="press/orbjar-feature-graphic-cs.png" alt="Banner hry Orbjar z obchodu">
+        <div class="dl"><a class="btn" href="press/orbjar-feature-graphic-cs.png" download>PNG</a></div></div>
     </div>
   </section>
 

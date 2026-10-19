@@ -16,6 +16,17 @@
 .facts dt { font-weight: 700; } .facts dd { margin: 0; }
 .dl { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
 .dl a { font-size: 14px; }
+.logos { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; margin-top: 8px; }
+.logos .tile { border-radius: 18px; padding: 20px; border: 1px solid var(--rule); }
+.logos .tile img { display: block; width: 100%; height: auto; margin: 6px 0 14px; }
+.logos .tile p { margin: 0 0 4px; font-weight: 700; }
+.logos .on-light { background: #FFFFFF; color: #151B2E; }
+.logos .on-dark { background: #151B2E; color: #F4F5FA; }
+.logos .icon { background: var(--card); }
+.shots.eight { grid-template-columns: repeat(4, 1fr); } @media (max-width: 620px) { .shots.eight { grid-template-columns: repeat(2, 1fr); } }
+.logos .tile.wide { grid-column: 1 / -1; }
+.logos .tile .dl { margin-top: 8px; }
+.logos .tile img.gameicon { width: 96px; border-radius: 22px; }
 @media (max-width: 520px) { .facts { grid-template-columns: 1fr; } .facts dd { margin-bottom: 8px; } }
 </style>
 </head>
@@ -68,23 +79,31 @@
 
   <section>
     <h2>Screenshots</h2>
-    <p>Click for the full size.</p>
-    <div class="shots">
-      <a href="shot-1-large.jpg"><img src="shot-1.jpg" alt="Drop, merge, grow" loading="lazy"></a>
-      <a href="shot-2-large.jpg"><img src="shot-2.jpg" alt="Ten worlds, ten twists" loading="lazy"></a>
-      <a href="shot-3-large.jpg"><img src="shot-3.jpg" alt="Beat the bosses" loading="lazy"></a>
-      <a href="shot-4-large.jpg"><img src="shot-4.jpg" alt="Dress up for the seasons" loading="lazy"></a>
-      <a href="shot-5-large.jpg"><img src="shot-5.jpg" alt="Pick your look" loading="lazy"></a>
-      <a href="shot-6-large.jpg"><img src="shot-6.jpg" alt="Collect and compete" loading="lazy"></a>
+    <p>The same 8 screenshots as on Google Play. Click for the full size (1080 x 1920). The Czech versions are on the <a href="/cs/orbjar/press.html">Czech page</a>.</p>
+    <div class="shots eight">
+      <a href="press/shot-01-large.jpg"><img src="press/shot-01.jpg" alt="Meet the Orblings" loading="lazy"></a>
+      <a href="press/shot-02-large.jpg"><img src="press/shot-02.jpg" alt="Drop, merge, grow" loading="lazy"></a>
+      <a href="press/shot-03-large.jpg"><img src="press/shot-03.jpg" alt="Your journey starts here" loading="lazy"></a>
+      <a href="press/shot-04-large.jpg"><img src="press/shot-04.jpg" alt="Ten worlds, ten twists" loading="lazy"></a>
+      <a href="press/shot-05-large.jpg"><img src="press/shot-05.jpg" alt="Beat the bosses" loading="lazy"></a>
+      <a href="press/shot-06-large.jpg"><img src="press/shot-06.jpg" alt="Dress up for the seasons" loading="lazy"></a>
+      <a href="press/shot-07-large.jpg"><img src="press/shot-07.jpg" alt="Pick your look" loading="lazy"></a>
+      <a href="press/shot-08-large.jpg"><img src="press/shot-08.jpg" alt="Collect and compete" loading="lazy"></a>
     </div>
+    <div class="dl"><a class="btn" href="press/orbjar-screenshots-en.zip" download>All 8 screenshots (ZIP)</a></div>
   </section>
 
   <section>
-    <h2>Logo and icon</h2>
-    <div class="dl">
-      <a class="btn" href="icon.png" download>Game icon (PNG)</a>
-      <a class="btn" href="../assets/logo-on-light.svg" download>Studio logo, light (SVG)</a>
-      <a class="btn" href="../assets/logo-on-dark.svg" download>Studio logo, dark (SVG)</a>
+    <h2>Logo and graphics</h2>
+    <div class="logos">
+      <div class="tile on-light"><p>For light backgrounds</p><img src="../assets/seedlamp-studio-logo-for-light-bg-transparent.png" alt="Seedlamp Studio logo for light backgrounds">
+        <div class="dl"><a class="btn" href="../assets/seedlamp-studio-logo-for-light-bg-transparent.png" download>PNG, transparent</a><a class="btn" href="../assets/seedlamp-studio-logo-white-bg.png" download>PNG, white background</a><a class="btn" href="../assets/logo-on-light.svg" download="seedlamp-studio-icon-for-light-bg.svg">Icon only, SVG</a></div></div>
+      <div class="tile on-dark"><p>For dark backgrounds</p><img src="../assets/seedlamp-studio-logo-for-dark-bg-transparent.png" alt="Seedlamp Studio logo for dark backgrounds">
+        <div class="dl"><a class="btn" href="../assets/seedlamp-studio-logo-for-dark-bg-transparent.png" download>PNG, transparent</a><a class="btn" href="../assets/seedlamp-studio-logo-navy-bg.png" download>PNG, dark background</a><a class="btn" href="../assets/logo-on-dark.svg" download="seedlamp-studio-icon-for-dark-bg.svg">Icon only, SVG</a></div></div>
+      <div class="tile icon"><p>Game icon</p><img class="gameicon" src="icon.png" alt="Orbjar game icon">
+        <div class="dl"><a class="btn" href="icon.png" download="orbjar-icon.png">PNG</a></div></div>
+      <div class="tile icon wide"><p>Store banner (1024 x 500)</p><img src="press/orbjar-feature-graphic-en.png" alt="Orbjar store banner">
+        <div class="dl"><a class="btn" href="press/orbjar-feature-graphic-en.png" download>PNG</a></div></div>
     </div>
   </section>
 
