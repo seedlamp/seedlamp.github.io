@@ -1,6 +1,6 @@
 ---
 lang: cs
-updated: "2026-09-25"
+updated: "2026-10-21"
 ---
 <!doctype html>
 <html lang="cs">
@@ -33,6 +33,7 @@ updated: "2026-09-25"
   <li>Reklamy zobrazuje Google AdMob, který shromažďuje údaje, aby mohl reklamy zobrazovat a měřit.</li>
   <li>Nákupy zpracovává výhradně Google Play. Žádné platební údaje se k nám nikdy nedostanou.</li>
   <li>Když se přihlásíš do Her Google Play, tvůj postup se může zálohovat do tvého účtu Google.</li>
+  <li>Anonymní herní statistiky (spuštěné a dokončené úrovně, hvězdy, pokusy) nám pomáhají vyladit obtížnost.</li>
   <li>Nic neprodáváme třetím stranám a hra není určena dětem mladším 13 let.</li>
 </ul>
 
@@ -66,13 +67,13 @@ updated: "2026-09-25"
 <p>Pokud si zapneš denní připomínku, hra si v tvém zařízení naplánuje místní oznámení kolem 18:00. Nic se neposílá nám ani na žádný server a vypnout ji můžeš v <em>Nastavení</em> nebo v nastavení oznámení v Androidu.</p>
 
 <h2>Analytika</h2>
-<p>Hra neobsahuje žádné samostatné analytické SDK. Google Play nám poskytuje souhrnné anonymní statistiky o instalacích, pádech a hodnoceních, ze kterých nelze poznat jednotlivé hráče.</p>
+<p>Kvůli vyladění obtížnosti hra posílá anonymní herní statistiky přes Google Analytics pro Firebase: kdy úroveň začne a skončí, číslo úrovně, jestli byla vyhraná, hvězdy, počet použitých tahů, kolikátý je to pokus a v soubojích s bossem zbývající zdraví bosse, a také konečné skóre her v režimu Endless. Firebase přidává základní technické údaje, například náhodné ID instalace aplikace, model zařízení, verzi Androidu, verzi aplikace a přibližnou zemi. Hra neposílá tvoje jméno, e-mail, reklamní ID ani nic, co napíšeš, a tyto údaje se nepoužívají k reklamě ani k jejímu přizpůsobení. Google je uchovává nejdéle 14 měsíců; my se díváme jen na souhrny (například kolik pokusů průměrně zabere jedna úroveň). Google Play nám navíc poskytuje souhrnné statistiky o instalacích, pádech a hodnoceních.</p>
 
 <h2>Děti</h2>
 <p>Hra není určena dětem mladším 13 let a vědomě od nich nesbíráme žádné údaje. Cílová skupina hry na Google Play je nastavena na 13 let a více. V některých zemích (například v České republice, 15 let) je věk, od kterého můžeš souhlasit s personalizovanými reklamami, vyšší než 13 let; pokud jsi mladší, zvol prosím ve formuláři souhlasu nepersonalizované reklamy nebo požádej rodiče.</p>
 
 <h2>Právní základ a doba uchování (GDPR)</h2>
-<p>Pokud se používají personalizované reklamy, právním základem je tvůj souhlas, který můžeš kdykoli odvolat. Nepersonalizované reklamy, prevence podvodů a základní fungování aplikace se opírají o oprávněný zájem na provozu hry. Údaje uložené u Googlu se uchovávají podle vlastních zásad Googlu. Nevedeme žádnou osobní databázi hráčů, takže většinu žádostí o tvoje údaje vyřešíme odkazem na výše popsaná nastavení; pokud nebudou stačit, napiš nám a pomůžeme ti.</p>
+<p>Pokud se používají personalizované reklamy, právním základem je tvůj souhlas, který můžeš kdykoli odvolat. Nepersonalizované reklamy, prevence podvodů, základní fungování aplikace a anonymní herní statistiky se opírají o oprávněný zájem na provozu a vyladění hry; můžeš proti tomu vznést námitku tím, že nám napíšeš. Údaje uložené u Googlu se uchovávají podle vlastních zásad Googlu. Nevedeme žádnou osobní databázi hráčů, takže většinu žádostí o tvoje údaje vyřešíme odkazem na výše popsaná nastavení; pokud nebudou stačit, napiš nám a pomůžeme ti.</p>
 
 {% include privacy-common.html game="Orbjar" %}
 </main>
