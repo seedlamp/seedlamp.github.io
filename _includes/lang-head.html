@@ -1,8 +1,8 @@
 {%- comment -%} Pages with a Czech twin under /cs/: hreflang links + pick the language on entry (stored choice; else, when arriving from outside the site, the browser language: cs -> Czech, anything else -> English). {%- endcomment -%}
 {%- if page.lang == 'cs' -%}{%- assign cs_url = page.url -%}{%- assign en_url = page.url | remove_first: '/cs' -%}{%- else -%}{%- assign en_url = page.url -%}{%- assign cs_url = page.url | prepend: '/cs' -%}{%- endif %}
-<link rel="alternate" hreflang="en" href="https://seedlamp.github.io{{ en_url }}">
-<link rel="alternate" hreflang="cs" href="https://seedlamp.github.io{{ cs_url }}">
-<link rel="alternate" hreflang="x-default" href="https://seedlamp.github.io{{ en_url }}">
+<link rel="alternate" hreflang="en" href="https://seedlamp.com{{ en_url }}">
+<link rel="alternate" hreflang="cs" href="https://seedlamp.com{{ cs_url }}">
+<link rel="alternate" hreflang="x-default" href="https://seedlamp.com{{ en_url }}">
 <script>
 (function () {
   var want, q = /[?&]lang=(cs|en)\b/.exec(location.search);   // ?lang=: the game opens its policy in the game's language
