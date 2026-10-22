@@ -13,6 +13,6 @@
     if (document.referrer.indexOf(location.origin + '/') === 0) return;   // moving around the site (or the switch with storage blocked): keep the page
     var l = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase(); want = l.indexOf('cs') === 0 ? 'cs' : 'en';
   }
-  if (want !== '{{ page.lang | default: "en" }}') location.replace((want === 'cs' ? '{{ cs_url }}' : '{{ en_url }}') + location.hash);
+  if (want !== '{{ page.lang | default: "en" }}') location.replace((want === 'cs' ? '{{ cs_url }}' : '{{ en_url }}') + location.search + location.hash);   // keep ?ref= (visit counter)
 })();
 </script>
