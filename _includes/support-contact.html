@@ -1,4 +1,4 @@
 <div class="box">
-  {% if page.lang == 'cs' %}Napiš na{% else %}Email{% endif %} <a href="mailto:{{ site.data.studio.email }}">{{ site.data.studio.email }}</a>{% if include.hint %}<br>
+  {% if page.lang == 'cs' %}Napiš na{% else %}Email{% endif %} <a href="mailto:{{ page.email | default: site.data.studio.email }}">{{ page.email | default: site.data.studio.email }}</a>{% if include.hint %}<br>
   {{ include.hint }}{% endif %}
 </div>
