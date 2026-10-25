@@ -73,8 +73,12 @@ ul { padding-left: 22px; } li { margin-bottom: 6px; }
 .box { background: var(--card); border: 1px solid var(--rule); border-radius: 14px; padding: 16px 18px; margin: 18px 0; }
 
 footer { margin-top: 64px; border-top: 1px solid var(--rule); }
-footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding-top: 20px; padding-bottom: 40px; color: var(--muted); font-size: 14px; }
+footer .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; padding-top: 20px; padding-bottom: 40px; color: var(--muted); font-size: 14px; }
 footer .legal { flex-basis: 100%; font-size: 13px; }
+.social { display: inline-flex; align-items: center; gap: 12px; }
+.social a { color: var(--muted); display: inline-flex; }
+.social a:hover { color: var(--ink); }
+.social svg { width: 18px; height: 18px; fill: currentColor; }
 
 /* language switch (EN | CZ twin pages) */
 .bar nav { flex-wrap: wrap; row-gap: 4px; }
