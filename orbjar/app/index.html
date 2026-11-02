@@ -39,7 +39,7 @@
   <div class="stores">
     <a class="btn" id="play" href="https://play.google.com/store/apps/details?id=com.orbjar.game" data-cs="Stáhnout z Google Play">Get it on Google Play</a>
     <span class="pill" id="ios" data-cs="App Store: už brzy">App Store: coming soon</span>
-    <a id="more" href="../" data-cs="Více o hře">More about the game</a>
+    <a id="more" href="https://seedlamp.com/orbjar/" data-cs="Více o hře">More about the game</a>
   </div>
 </main>
 <script>
@@ -48,7 +48,7 @@
   if (/^cs\b/i.test(navigator.language || '')) {
     document.documentElement.lang = 'cs';
     [].forEach.call(document.querySelectorAll('[data-cs]'), function (e) { e.textContent = e.getAttribute('data-cs'); });
-    document.getElementById('play').href += '&hl=cs'; document.getElementById('more').href = '../../cs/orbjar/';
+    document.getElementById('play').href += '&hl=cs'; document.getElementById('more').href = 'https://seedlamp.com/cs/orbjar/';
   }
 </script>
 </body>
