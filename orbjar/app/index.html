@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Get Orbjar · Seedlamp Studio</title>
+<meta name="robots" content="noindex">
+<!-- seedlamp.com/orbjar/app = the ONE link in QR codes / share pictures (2026-11-02): Android -> Google Play, iPhone/iPad ->
+     App Store once IOS is set (until then: 'coming soon' + Android link), anything else -> this page with the store buttons. -->
+<script>
+  var PLAY = 'https://play.google.com/store/apps/details?id=com.orbjar.game';
+  var IOS = '';   // at the iOS release: 'https://apps.apple.com/app/id6828424085'
+  var ua = navigator.userAgent || '';
+  var isIOS = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  if (/Android/i.test(ua)) location.replace(PLAY);
+  else if (isIOS && IOS) location.replace(IOS);
+</script>
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../assets/brand.css">
+<style>
+  .get { text-align: center; padding: 48px 20px 64px; }
+  .get .icon { width: 112px; height: 112px; border-radius: 26px; }
+  .get h1 { margin: 16px 0 6px; }
+  .get p { margin: 0 auto 22px; max-width: 420px; }
+  .get .stores { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .get .ios-note { display: none; font-weight: 700; }
+  .is-ios .get .ios-note { display: block; }
+</style>
+</head>
+<body>
+<div class="bar"><div class="wrap">
+  <a class="brand" href="../../"><img src="../../assets/logo-on-dark.svg" alt="">seedlamp <span>studio</span></a>
+</div></div>
+<main class="wrap get">
+  <img class="icon" src="../icon.png" alt="Orbjar icon">
+  <h1>Orbjar</h1>
+  <p data-cs="Klidná puzzle hra: pouštěj, spojuj a nech Orblíky vyrůst až v Krále Orbů.">A calm drop-and-merge puzzle: grow the Orblings all the way to the Orb King.</p>
+  <p class="ios-note" data-cs="Na iPhone už brzy. Zatím na Androidu:">Coming soon to iPhone. Available on Android now:</p>
+  <div class="stores">
+    <a class="btn" id="play" href="https://play.google.com/store/apps/details?id=com.orbjar.game" data-cs="Stáhnout z Google Play">Get it on Google Play</a>
+    <span class="pill" id="ios" data-cs="App Store: už brzy">App Store: coming soon</span>
+    <a id="more" href="../" data-cs="Více o hře">More about the game</a>
+  </div>
+</main>
+<script>
+  if (isIOS) document.documentElement.className += ' is-ios';
+  if (IOS) { var s = document.getElementById('ios'), a = document.createElement('a'); a.className = 'btn'; a.href = IOS; a.textContent = 'Download on the App Store'; a.setAttribute('data-cs', 'Stáhnout z App Store'); s.parentNode.replaceChild(a, s); }
+  if (/^cs\b/i.test(navigator.language || '')) {
+    document.documentElement.lang = 'cs';
+    [].forEach.call(document.querySelectorAll('[data-cs]'), function (e) { e.textContent = e.getAttribute('data-cs'); });
+    document.getElementById('play').href += '&hl=cs'; document.getElementById('more').href = '../../cs/orbjar/';
+  }
+</script>
+</body>
+</html>
