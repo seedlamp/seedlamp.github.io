@@ -9,6 +9,11 @@
      App Store once IOS is set (until then: 'coming soon' + Android link), anything else -> this page with the store buttons. -->
 <script>
   var PLAY = 'https://play.google.com/store/apps/details?id=com.orbjar.game';
+  // utm_* in this page's URL (tagged / paid links, e.g. ?utm_source=tiktok&utm_medium=promote&utm_campaign=release) go on to
+  // Google Play as 'referrer' = Play Console shows installs per source (2026-11-11). A plain visit = the plain Play link.
+  var Q = new URLSearchParams(location.search), REF = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term']
+    .filter(function (k) { return Q.get(k); }).map(function (k) { return k + '=' + Q.get(k); }).join('&');
+  if (REF) PLAY += '&referrer=' + encodeURIComponent(REF);
   var IOS = '';   // at the iOS release: 'https://apps.apple.com/app/id6828424085'
   var ua = navigator.userAgent || '';
   var isIOS = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
@@ -46,6 +51,7 @@
   if (isIOS) document.documentElement.className += ' is-ios';
   if (IOS) { var nt = document.querySelector('.ios-note'); if (nt) nt.parentNode.removeChild(nt); }
   if (IOS) { var s = document.getElementById('ios'), a = document.createElement('a'); a.className = 'btn'; a.href = IOS; a.textContent = 'Download on the App Store'; a.setAttribute('data-cs', 'Stáhnout z App Store'); s.parentNode.replaceChild(a, s); }
+  document.getElementById('play').href = PLAY;   // the button too: with the referrer when the visit was tagged
   if (/^cs\b/i.test(navigator.language || '')) {
     document.documentElement.lang = 'cs';
     [].forEach.call(document.querySelectorAll('[data-cs]'), function (e) { e.textContent = e.getAttribute('data-cs'); });
