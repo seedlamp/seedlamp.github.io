@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Orbjar · Seedlamp Studio</title>
+<meta name="robots" content="noindex">
+<!-- One-tap answer page for tester mails (2026-11-11): ?a=ano|ne&t=<tester code>[&l=en]. JS sends the answer to the
+     Google Form 'Seedlamp - testování dalších her' in the background (link scanners do not run JS = no false answers).
+     The code -> tester list lives only on E:/ClaudeAI/gtmp/tester-mail (never here). -->
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../assets/brand.css">
+<style>
+  .ans { text-align: center; padding: 48px 20px 64px; }
+  .ans .icon { width: 112px; height: 112px; border-radius: 26px; }
+  .ans h1 { margin: 16px 0 10px; }
+  .ans p { margin: 0 auto 22px; max-width: 420px; }
+</style>
+</head>
+<body>
+<div class="bar"><div class="wrap">
+  <a class="brand" href="../../"><img src="../../assets/logo-on-dark.svg" alt="">seedlamp <span>studio</span></a>
+</div></div>
+<main class="wrap ans">
+  <img class="icon" src="../icon.png" alt="Orbjar">
+  <h1 id="h">Ukládám…</h1>
+  <p id="p"></p>
+  <a id="more" href="https://seedlamp.com/cs/orbjar/">Více o hře</a>
+</main>
+<script>
+  var q = new URLSearchParams(location.search), a = (q.get('a') || '').toLowerCase(), t = q.get('t') || '', en = q.get('l') === 'en';
+  var T = en ? {
+    wait: 'Saving…', yesH: 'Thanks, noted!', yesP: "I'll write to you when there's something new to test.",
+    noH: 'Thanks, noted.', noP: "I won't write to you about testing. Enjoy Orbjar!",
+    errH: 'Something went wrong', errP: 'Please just reply to my e-mail with "Yes" or "No". Thank you!', more: 'More about the game'
+  } : {
+    wait: 'Ukládám…', yesH: 'Díky, zapsáno!', yesP: 'Až bude něco nového k testování, napíšu ti.',
+    noH: 'Díky, zapsáno.', noP: 'Kvůli testování ti už psát nebudu. Ať tě Orbjar baví!',
+    errH: 'Něco se nepovedlo', errP: 'Odpověz mi prosím na e-mail jen „Ano“ nebo „Ne“. Díky!', more: 'Více o hře'
+  };
+  if (en) { document.documentElement.lang = 'en'; document.getElementById('more').href = 'https://seedlamp.com/orbjar/'; }
+  document.getElementById('more').textContent = T.more;
+  var h = document.getElementById('h'), p = document.getElementById('p');
+  function show(k) { h.textContent = T[k + 'H']; p.textContent = T[k + 'P']; }
+  h.textContent = T.wait;
+  if ((a !== 'ano' && a !== 'ne') || !/^[a-z0-9]{3,12}$/i.test(t)) show('err');
+  else {
+    var body = new URLSearchParams({ 'entry.82521990': 'code:' + t, 'entry.192072376': a === 'ano' ? 'Ano' : 'Ne' });
+    fetch('https://docs.google.com/forms/d/e/1FAIpQLScwVW85GIA8mo5ouwbHo_iZloCN8SvzZuMu6iKjILGd8B5hhA/formResponse',
+      { method: 'POST', mode: 'no-cors', body: body })
+      .then(function () { show(a === 'ano' ? 'yes' : 'no'); }, function () { show('err'); });
+  }
+</script>
+</body>
+</html>
