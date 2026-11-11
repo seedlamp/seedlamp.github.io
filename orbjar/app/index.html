@@ -9,7 +9,7 @@
      App Store once IOS is set (until then: 'coming soon' + Android link), anything else -> this page with the store buttons. -->
 <script>
   var PLAY = 'https://play.google.com/store/apps/details?id=com.orbjar.game';
-  var IOS = 'https://apps.apple.com/app/id6828424085';   // at the iOS release: 'https://apps.apple.com/app/id6828424085'
+  var IOS = '';   // at the iOS release: 'https://apps.apple.com/app/id6828424085'
   var ua = navigator.userAgent || '';
   var isIOS = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
   if (/Android/i.test(ua)) location.replace(PLAY);
@@ -35,7 +35,7 @@
   <img class="icon" src="../icon.png" alt="Orbjar icon">
   <h1>Orbjar</h1>
   <p data-cs="Klidná puzzle hra: pouštěj, spojuj a nech Orblíky vyrůst až v Krále Orbů.">A calm drop-and-merge puzzle: grow the Orblings all the way to the Orb King.</p>
-  <p class="ios-note" data-cs="Na iOS už brzy. Zatím na Androidu:">Coming soon to iOS. Available on Android now:</p>
+  <p class="ios-note" data-cs="V App Store už brzy. Zatím na Google Play:">Coming soon to the App Store. On Google Play now:</p>
   <div class="stores">
     <a class="btn" id="play" href="https://play.google.com/store/apps/details?id=com.orbjar.game" data-cs="Stáhnout z Google Play">Get it on Google Play</a>
     <span class="pill" id="ios" data-cs="App Store: už brzy">App Store: coming soon</span>
